@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>宿舍环境分析报告</title>
+<style>
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;max-width:860px;margin:24px auto;color:#2b3440;background:#f4f6f9;padding:16px}
+.card{background:#fff;border-radius:12px;padding:20px 24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,52,64,.08)}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:16px;margin:0 0 12px;color:#4a90d9}
+.meta{color:#7a8494;font-size:13px}
+.stats{display:flex;gap:12px;flex-wrap:wrap}
+.stat{flex:1;min-width:150px;background:#f4f6f9;border-radius:8px;padding:12px;text-align:center}
+.stat .stat-title{font-size:13px;color:#7a8494}
+.stat .num{font-size:22px;font-weight:700;margin:4px 0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid #e5e9ef;text-align:left}
+th{background:#f4f6f9}
+.status{padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600}
+img{max-width:100%;border-radius:8px}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>宿舍环境分析报告</h1>
+<p class="meta">生成时间：2026-09-26 22:10:08 · 数据来源：D:\AICoding\nova‑dormmate‑final‑2026\data\dormmate.csv · 共 5 条记录</p>
+</div>
+<div class="card">
+<h2>温湿度极值</h2>
+<div class="stats"><div class="stat"><div class="stat-title">最高温度</div><div class="num">33.0℃</div><div class="meta">2026-09-26 22:06:32</div></div><div class="stat"><div class="stat-title">最低温度</div><div class="num">5.0℃</div><div class="meta">2026-09-26 22:06:10</div></div><div class="stat"><div class="stat-title">最高湿度</div><div class="num">65.0%</div><div class="meta">2026-09-26 22:06:24</div></div><div class="stat"><div class="stat-title">最低湿度</div><div class="num">40.0%</div><div class="meta">2026-09-26 22:06:10</div></div></div>
+</div>
+<div class="card">
+<h2>环境状态分布</h2>
+<table><tr><th>状态</th><th>次数</th><th>占比</th></tr><tr><td><span class="status" style="background:#e8f2fd;color:#1d5fa8">偏冷</span></td><td>2</td><td>40.0%</td></tr><tr><td><span class="status" style="background:#fdeee8;color:#b5502a">偏热</span></td><td>2</td><td>40.0%</td></tr><tr><td><span class="status" style="background:#e5f6f6;color:#1a8a8a">偏湿</span></td><td>0</td><td>0.0%</td></tr><tr><td><span class="status" style="background:#eaf5e9;color:#3c7a34">正常</span></td><td>1</td><td>20.0%</td></tr></table>
+</div>
+<div class="card">
+<h2>需要关注的记录</h2>
+<p class="meta">共 4 条需要关注</p><table><tr><th>时间</th><th>温度</th><th>湿度</th><th>状态</th></tr><tr><td>2026-09-26 22:06:10</td><td>5.0℃</td><td>40.0%</td><td><span class="status" style="background:#e8f2fd;color:#1d5fa8">偏冷</span></td></tr><tr><td>2026-09-26 22:06:24</td><td>10.0℃</td><td>65.0%</td><td><span class="status" style="background:#e8f2fd;color:#1d5fa8">偏冷</span></td></tr><tr><td>2026-09-26 22:06:32</td><td>33.0℃</td><td>48.0%</td><td><span class="status" style="background:#fdeee8;color:#b5502a">偏热</span></td></tr><tr><td>2026-09-26 22:06:48</td><td>32.0℃</td><td>50.0%</td><td><span class="status" style="background:#fdeee8;color:#b5502a">偏热</span></td></tr></table>
+</div>
+<div class="card">
+<h2>温湿度趋势</h2>
+<img src="trend.png" alt="温湿度趋势图">
+</div>
+</body>
+</html>

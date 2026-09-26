@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DormMate · 宿舍环境判断</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <header>
+      <h1>宿舍环境判断</h1>
+      <p class="subtitle">输入温度与湿度，一键判断环境状态</p>
+    </header>
+
+    <form id="env-form" novalidate>
+      <div class="field">
+        <label for="temp">温度（℃）</label>
+        <input type="text" id="temp" inputmode="decimal" placeholder="0 ~ 50" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="humidity">湿度（%）</label>
+        <input type="text" id="humidity" inputmode="decimal" placeholder="0 ~ 100" autocomplete="off">
+      </div>
+      <p id="error" class="error" hidden></p>
+      <button type="submit">判断环境</button>
+    </form>
+
+    <section id="result" hidden>
+      <h2>环境状态：<span id="status"></span></h2>
+      <p id="advice"></p>
+    </section>
+
+    <section class="history">
+      <div class="history-header">
+        <h2>历史记录</h2>
+        <button type="button" id="export-btn" class="btn-export">导出CSV</button>
+      </div>
+      <ul id="history-list"></ul>
+      <p id="history-empty" class="history-empty">暂无记录</p>
+    </section>
+  </main>
+
+  <script src="../analysis/export.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
