@@ -1,0 +1,8 @@
+{
+  "pages": [
+    "pages/dormmate/dormmate"
+  ],
+  "window": {
+    "navigationBarTitleText": "DormMate 宿舍环境"
+  }
+}
