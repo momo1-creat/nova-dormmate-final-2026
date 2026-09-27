@@ -55,10 +55,21 @@
         <button type="button" id="camera-download" class="btn-export" disabled>下载快照</button>
       </div>
     </section>
+
+    <section class="m3">
+      <div class="m3-header">
+        <h2>语音控制</h2>
+        <button type="button" id="voice-start" class="btn-export">开始语音</button>
+      </div>
+      <p id="voice-msg" class="m3-msg" hidden></p>
+      <p class="m3-msg">固定指令：「判断环境」— 自动提交当前表单</p>
+      <p id="voice-transcript" class="voice-transcript">识别文字将显示在这里</p>
+    </section>
   </main>
 
   <script src="../analysis/export.js"></script>
   <script src="camera.js"></script>
+  <script src="voice.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
