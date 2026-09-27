@@ -39,9 +39,26 @@
       <ul id="history-list"></ul>
       <p id="history-empty" class="history-empty">暂无记录</p>
     </section>
+
+    <section class="m3">
+      <div class="m3-header">
+        <h2>摄像头抓拍</h2>
+        <button type="button" id="camera-start" class="btn-export">开启摄像头</button>
+      </div>
+      <p id="camera-msg" class="m3-msg" hidden></p>
+      <div class="camera-row">
+        <video id="camera-video" autoplay playsinline muted></video>
+        <img id="snapshot" alt="快照" hidden>
+      </div>
+      <div class="camera-actions">
+        <button type="button" id="camera-snap" class="btn-export" disabled>拍照</button>
+        <button type="button" id="camera-download" class="btn-export" disabled>下载快照</button>
+      </div>
+    </section>
   </main>
 
   <script src="../analysis/export.js"></script>
+  <script src="camera.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

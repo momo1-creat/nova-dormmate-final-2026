@@ -220,3 +220,43 @@ button:hover {
   text-align: center;
   padding: 8px 0;
 }
+
+/* M3 摄像头/语音区 */
+.m3 {
+  margin-top: 24px;
+}
+
+.m3-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.m3-header h2 {
+  font-size: 16px;
+}
+
+.m3-msg {
+  font-size: 13px;
+  color: #7a8494;
+  margin-bottom: 10px;
+}
+
+.camera-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+#camera-video, #snapshot {
+  width: 200px;
+  border-radius: 8px;
+  background: #1a1d23;
+}
+
+.camera-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
