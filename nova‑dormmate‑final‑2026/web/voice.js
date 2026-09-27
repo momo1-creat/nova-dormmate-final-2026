@@ -49,6 +49,32 @@
     return false;
   }
 
+  // TTS：朗读内容随当前状态变化
+  const STATUS_SPEECH = {
+    '偏冷': '当前环境偏冷，注意保暖',
+    '偏热': '当前环境偏热，注意防暑通风',
+    '偏湿': '当前环境偏湿，建议除湿通风',
+    '正常': '当前环境正常，体感舒适'
+  };
+
+  function speakStatus(status) {
+    if (!('speechSynthesis' in window)) {
+      showMsg('当前浏览器不支持语音朗读');
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(
+      STATUS_SPEECH[status] || ('当前环境' + status)
+    );
+    u.lang = 'zh-CN';
+    window.speechSynthesis.speak(u);
+  }
+
+  // 判断结果变化（script.js 在 showResult 后派发）→ 朗读对应状态
+  document.addEventListener('statuschange', function (e) {
+    speakStatus(e.detail);
+  });
+
   startBtn.addEventListener('click', function () {
     if (!recognition) {
       recognition = initRecognition();
@@ -81,4 +107,5 @@
 
   window.handleCommand = handleCommand;
   window.voiceCommands = COMMANDS;
+  window.speakStatus = speakStatus;
 })();

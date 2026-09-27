@@ -78,6 +78,8 @@ function showResult(temp, humidity, status) {
   statusEl.textContent = status;
   adviceEl.textContent =
     `温度 ${temp}℃，湿度 ${humidity}% · ${ADVICE[status]}`;
+  // M3：派发状态变化事件（voice.js 监听并 TTS 朗读）
+  document.dispatchEvent(new CustomEvent('statuschange', { detail: status }));
 }
 
 function addHistory(temp, humidity, status) {
