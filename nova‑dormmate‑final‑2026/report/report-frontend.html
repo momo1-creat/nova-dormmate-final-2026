@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>DormMate 历史复盘</title>
+<style>
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;max-width:860px;margin:24px auto;color:#2b3440;background:#f4f6f9;padding:16px}
+.card{background:#fff;border-radius:12px;padding:20px 24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,52,64,.08)}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:16px;margin:0 0 12px;color:#4a90d9}
+.meta{color:#7a8494;font-size:13px}
+.stats{display:flex;gap:12px;flex-wrap:wrap}
+.stat{flex:1;min-width:150px;background:#f4f6f9;border-radius:8px;padding:12px;text-align:center}
+.stat .stat-title{font-size:13px;color:#7a8494}
+.stat .num{font-size:22px;font-weight:700;margin:4px 0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid #e5e9ef;text-align:left}
+th{background:#f4f6f9}
+.status{padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600}
+img{max-width:100%;border-radius:8px}
+.events{list-style:none;padding:0}
+.events li{padding:8px 0;border-bottom:1px solid #e5e9ef;font-size:13px;color:#4a5468}
+.events li:last-child{border-bottom:none}
+.st-cold{background:#e8f2fd;color:#1d5fa8}
+.st-hot{background:#fdeee8;color:#b5502a}
+.st-humid{background:#e5f6f6;color:#1a8a8a}
+.st-normal{background:#eaf5e9;color:#3c7a34}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>DormMate 历史复盘</h1>
+<p class="meta">统计由 Python 分析生成 · 摘要与事件复盘由浏览器 JS 读取真实数据渲染</p>
+</div>
+
+<div class="card">
+<h2>温湿度极值</h2>
+<div class="stats" id="extremes"></div>
+</div>
+<div class="card">
+<h2>环境状态分布</h2>
+<table id="dist-table"><tr><th>状态</th><th>次数</th><th>占比</th></tr></table>
+</div>
+<div class="card">
+<h2>需要关注的记录</h2>
+<div id="attention"></div>
+</div>
+<div class="card">
+<h2>今日摘要</h2>
+<p id="summary-text" class="meta">加载中…</p>
+</div>
+<div class="card">
+<h2>事件复盘</h2>
+<ul class="events" id="review-list"></ul>
+</div>
+<div class="card">
+<h2>ML异常分析</h2>
+<p class="meta">数据来自 ml_anomaly 落盘的 dormevent.json · 全部采样记录（含正常）</p>
+<table id="ml-table"><tr><th>宿舍nodeId</th><th>温度</th><th>湿度</th><th>时间</th><th>固定规则判定</th><th>ML判定</th></tr></table>
+</div>
+<div class="card">
+<h2>温湿度趋势</h2>
+<img src="trend.png" alt="温湿度趋势图">
+</div>
+
+<script>
+(function () {
+  var ALL_STATUSES = ['偏冷', '偏热', '偏湿', '正常'];
+  var STATUS_CLASS = {'偏冷': 'st-cold', '偏热': 'st-hot', '偏湿': 'st-humid', '正常': 'st-normal'};
+  var PERIODS = [
+    {max: 5, label: '凌晨'}, {max: 8, label: '早晨'}, {max: 11, label: '上午'},
+    {max: 13, label: '中午'}, {max: 17, label: '下午'}, {max: 19, label: '傍晚'},
+    {max: 22, label: '晚上'}, {max: 24, label: '深夜'}
+  ];
+  var ACTION_TEXT = {'fan_on': '开启风扇并通风', 'window_close': '关闭窗户'};
+
+  // ML 判定数据（report/dormevent.json：rule_status 固定规则 + ml_status 孤立森林输出）
+  var mlRecords = [];
+
+  function normTime(t) {
+    return String(t || '').replace('T', ' ');
+  }
+
+  function mlText(rec) {
+    return rec ? (rec.ml_status === 1 ? '正常' : '异常') : '—';
+  }
+
+  function periodOf(hhmm) {
+    var h = parseInt(hhmm.slice(0, 2), 10);
+    for (var i = 0; i < PERIODS.length; i++) {
+      if (h < PERIODS[i].max) return PERIODS[i].label;
+    }
+    return '深夜';
+  }
+
+  function minutesBetween(startHHMM, endHHMM) {
+    var s = parseInt(startHHMM.slice(0, 2), 10) * 60 + parseInt(startHHMM.slice(3, 5), 10);
+    var e = parseInt(endHHMM.slice(0, 2), 10) * 60 + parseInt(endHHMM.slice(3, 5), 10);
+    return Math.max(0, e - s);
+  }
+
+  function esc(s) {
+    var d = document.createElement('div');
+    d.textContent = String(s);
+    return d.innerHTML;
+  }
+
+  function fetchJSON(url) {
+    return fetch(url).then(function (r) {
+      if (!r.ok) throw new Error('fetch ' + url + ' -> ' + r.status);
+      return r.json();
+    });
+  }
+
+  // 1. 统计（数据来自 Python 输出的 dormmate.json）
+  function renderStats(records) {
+    var n = records.length;
+    var maxT = records.reduce(function (a, b) { return b.temperature > a.temperature ? b : a; });
+    var minT = records.reduce(function (a, b) { return b.temperature < a.temperature ? b : a; });
+    var maxH = records.reduce(function (a, b) { return b.humidity > a.humidity ? b : a; });
+    var minH = records.reduce(function (a, b) { return b.humidity < a.humidity ? b : a; });
+    var extremes = [
+      ['最高温度', maxT.temperature + '℃', maxT.time],
+      ['最低温度', minT.temperature + '℃', minT.time],
+      ['最高湿度', maxH.humidity + '%', maxH.time],
+      ['最低湿度', minH.humidity + '%', minH.time]
+    ];
+    document.getElementById('extremes').innerHTML = extremes.map(function (x) {
+      return '<div class="stat"><div class="stat-title">' + esc(x[0]) + '</div>' +
+        '<div class="num">' + esc(x[1]) + '</div>' +
+        '<div class="meta">' + esc(x[2]) + '</div></div>';
+    }).join('');
+
+    var counts = {};
+    ALL_STATUSES.forEach(function (s) { counts[s] = 0; });
+    records.forEach(function (r) { counts[r.status] = (counts[r.status] || 0) + 1; });
+    var distEl = document.getElementById('dist-table');
+    ALL_STATUSES.forEach(function (s) {
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td><span class="status ' + STATUS_CLASS[s] + '">' + esc(s) + '</span></td>' +
+        '<td>' + counts[s] + '</td><td>' + (counts[s] / n * 100).toFixed(1) + '%</td>';
+      distEl.appendChild(tr);
+    });
+
+    var attn = records.filter(function (r) { return r.status !== '正常'; });
+    var attnEl = document.getElementById('attention');
+    if (!attn.length) {
+      attnEl.innerHTML = '<p>无，全部记录均为正常状态</p>';
+      return;
+    }
+    attnEl.innerHTML = '<p class="meta">共 ' + attn.length + ' 条需要关注</p>' +
+      '<table><tr><th>时间</th><th>温度</th><th>湿度</th><th>状态</th></tr>' +
+      attn.map(function (r) {
+        return '<tr><td>' + esc(r.time) + '</td><td>' + r.temperature + '℃</td><td>' +
+          r.humidity + '%</td><td><span class="status ' + STATUS_CLASS[r.status] + '">' +
+          esc(r.status) + '</span></td></tr>';
+      }).join('') + '</table>';
+  }
+
+  // 2. 今日摘要与事件复盘（数据来自 events.json，与 Dashboard 同规则）
+  function renderEvents(events) {
+    var sumEl = document.getElementById('summary-text');
+    var listEl = document.getElementById('review-list');
+
+    if (!events.length) {
+      sumEl.textContent = '全部节点今日整体正常，未发生需要关注的环境事件。';
+      listEl.innerHTML = '<li>暂无事件记录</li>';
+      return;
+    }
+    var nodes = ['dorm-a', 'dorm-b', 'dorm-c'];
+    var parts = [];
+    nodes.forEach(function (node) {
+      var nodeEvents = events.filter(function (e) { return e.nodeId === node; });
+      if (!nodeEvents.length) {
+        parts.push(node + ' 全天整体正常');
+        return;
+      }
+      var last = nodeEvents[nodeEvents.length - 1];
+      var start = last.startTime || '?';
+      var status = last.status || '异常';
+      if (last.recovered !== true) {
+        parts.push(node + ' ' + periodOf(start) + ' 出现 ' + nodeEvents.length + ' 次' + status + '，目前仍未恢复');
+        return;
+      }
+      var end = last.endTime || '';
+      var mins = (start.length >= 5 && end.length >= 5) ? minutesBetween(start, end) : 0;
+      var actions = last.actions || [];
+      if (actions.length) {
+        var names = actions.map(function (a) {
+          return ACTION_TEXT[a.action] || a.action || '动作';
+        }).join('、');
+        parts.push(node + ' ' + periodOf(start) + ' 发生 ' + nodeEvents.length + ' 次持续' + status +
+          '，' + names + '后 ' + mins + ' 分钟恢复');
+      } else {
+        parts.push(node + ' ' + periodOf(start) + ' 发生 ' + nodeEvents.length + ' 次持续' + status +
+          '，' + mins + ' 分钟后恢复');
+      }
+    });
+    sumEl.textContent = parts.join('；') + '。今日共发生 ' + events.length + ' 次需要关注的环境事件。';
+
+    listEl.innerHTML = events.map(function (ev) {
+      var segs = [(ev.startTime || '?') + ' ' + (ev.status || '异常') + '异常'];
+      if (ev.priorityNote) {
+        segs.push((ev.priorityNote.time || '?') + ' 优先关注');
+      }
+      (ev.actions || []).forEach(function (a) {
+        segs.push((a.time || '?') + ' ' + (ACTION_TEXT[a.action] || a.action || '动作'));
+      });
+      if (ev.trendTime) {
+        segs.push(ev.trendTime + ' 温度开始下降');
+      }
+      if (ev.recovered !== true) {
+        segs.push('未恢复');
+      } else {
+        segs.push((ev.endTime || '?') + ' 恢复正常');
+      }
+      return '<li>' + esc(ev.nodeId || '?') + ' · ' + esc(segs.join(' → ')) + '</li>';
+    }).join('');
+  }
+
+  // 2.5 ML异常分析板块：dormevent.json 全部采样记录（正常、异常都展示）
+  function renderMlTable() {
+    var el = document.getElementById('ml-table');
+    if (!mlRecords.length) {
+      el.innerHTML = '<tr><td colspan="6">暂无 ML 采样记录</td></tr>';
+      return;
+    }
+    el.innerHTML = '<tr><th>宿舍nodeId</th><th>温度</th><th>湿度</th><th>时间</th><th>固定规则判定</th><th>ML判定</th></tr>' +
+      mlRecords.map(function (r) {
+        var ruleStatus = r.rule_status || '正常';
+        return '<tr><td>' + esc(r.nodeId || '?') + '</td><td>' + r.temperature + '℃</td><td>' +
+          r.humidity + '%</td><td>' + esc(normTime(r.time)) + '</td>' +
+          '<td><span class="status ' + (STATUS_CLASS[ruleStatus] || 'st-normal') + '">' +
+          esc(ruleStatus) + '</span></td>' +
+          '<td>' + mlText(r) + '</td></tr>';
+      }).join('');
+  }
+
+  // 3. 加载：统计（Python 输出）+ 事件（collector 落盘）+ ML 判定（ml_anomaly 落盘）
+  Promise.all([
+    fetchJSON('dormmate.json').catch(function () { return []; }),
+    fetchJSON('../data/events.json').catch(function () { return []; }),
+    fetchJSON('dormevent.json').catch(function () { return []; })
+  ]).then(function (res) {
+    mlRecords = res[2];
+    if (res[0].length) renderStats(res[0]);
+    renderEvents(res[1]);
+    renderMlTable();
+  }).catch(function (err) {
+    document.getElementById('summary-text').textContent = '加载失败：' + err.message;
+  });
+})();
+</script>
+</body>
+</html>
