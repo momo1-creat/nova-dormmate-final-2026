@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DormMate 3D 宿舍场景</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>DormMate 3D 宿舍场景</h1>
+    <p class="subtitle">拖拽旋转 · 滚轮缩放 · MQTT <span id="mqtt-status" class="mqtt-off">未连接</span></p>
+    <p class="node-status">
+      当前节点：<span id="cur-node">—</span>
+      · 环境状态：<span id="cur-status" class="status-normal">正常</span>
+      · 处理状态：<span id="cur-attention">—</span>
+    </p>
+  </header>
+  <div id="scene-container"></div>
+  <script src="vendor/three.min.js"></script>
+  <script src="vendor/mqtt.min.js"></script>
+  <script src="main.js?v=2"></script>
+</body>
+</html>

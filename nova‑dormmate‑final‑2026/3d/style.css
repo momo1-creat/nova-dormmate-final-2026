@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #12161f;
+  color: #e8ecf3;
+}
+
+header {
+  text-align: center;
+  padding: 14px 0 10px;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+.subtitle {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #8b93a5;
+}
+
+#scene-container {
+  flex: 1;
+  margin: 0 16px 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #2b3448;
+}
+
+#scene-container canvas {
+  display: block;
+}
+
+/* MQTT 连接状态 */
+.mqtt-off {
+  color: #e0725a;
+}
+
+.mqtt-on {
+  color: #6fce8b;
+}
+
+/* 当前节点 / 环境状态 */
+.node-status {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #aab2c5;
+}
+
+.node-status #cur-node {
+  font-weight: 700;
+  color: #e8ecf3;
+}
+
+#cur-status {
+  font-weight: 700;
+}
+
+.status-cold { color: #4a90d9; }
+.status-hot { color: #e0725a; }
+.status-humid { color: #56c4c4; }
+.status-normal { color: #6fce8b; }
