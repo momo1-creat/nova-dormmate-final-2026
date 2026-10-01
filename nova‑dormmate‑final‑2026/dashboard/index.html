@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DormMate 实时仪表盘</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>DormMate 实时仪表盘</h1>
+    <p class="subtitle">MQTT 实时数据 · 三节点环境监控 · <span id="mqtt-status" class="mqtt-off">未连接</span></p>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-node="dorm-a">dorm-a</button>
+    <button class="tab" data-node="dorm-b">dorm-b</button>
+    <button class="tab" data-node="dorm-c">dorm-c</button>
+  </nav>
+
+  <section class="overview-panel">
+    <h2>今日摘要</h2>
+    <p id="daily-summary-text" class="overview-text">等待数据…</p>
+  </section>
+
+  <section class="overview-panel">
+    <h2>当前总览</h2>
+    <p id="overview-text" class="overview-text">等待数据…</p>
+  </section>
+
+  <section class="overview-panel">
+    <h2>最高优先级节点</h2>
+    <p id="b2-text" class="overview-text">等待数据…</p>
+  </section>
+
+  <section class="attention-panel">
+    <h2>当前最值得关注</h2>
+    <p id="attention-text" class="attention-text">等待数据…</p>
+    <div class="attention-actions" id="attention-actions" hidden>
+      <button type="button" id="action-fan" class="action-btn">开启风扇</button>
+      <button type="button" id="action-window" class="action-btn">关闭窗户</button>
+    </div>
+    <p id="processing-text" class="processing-text" hidden></p>
+  </section>
+
+  <section class="incident-panel">
+    <h2>今日事件</h2>
+    <ul id="incident-list"></ul>
+    <p id="incident-empty" class="incident-empty">暂无事件</p>
+  </section>
+
+  <section class="cards" id="cards"></section>
+
+  <section class="chart-panel">
+    <h2>趋势图（<span id="chart-node">dorm-a</span>）</h2>
+    <canvas id="trend" width="860" height="300"></canvas>
+    <div class="legend">
+      <span class="lg lg-temp">温度 (℃)</span>
+      <span class="lg lg-hum">湿度 (%)</span>
+    </div>
+  </section>
+
+  <script src="vendor/mqtt.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

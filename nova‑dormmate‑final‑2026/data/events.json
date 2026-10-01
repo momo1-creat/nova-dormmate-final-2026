@@ -1,0 +1,395 @@
+[
+  {
+    "nodeId": "dorm-a",
+    "startTime": "19:39",
+    "status": "偏热",
+    "priorityNote": {
+      "time": "19:13",
+      "reason": "持续异常 0 秒，累计异常 1 次"
+    },
+    "actions": [
+      {
+        "action": "fan_on",
+        "time": "19:13"
+      }
+    ],
+    "trendTime": null,
+    "endTime": "19:39",
+    "recovered": true,
+    "tempPeak": 34
+  },
+  {
+    "nodeId": "dorm-c",
+    "startTime": "19:39",
+    "status": "偏热",
+    "priorityNote": {
+      "time": "19:07",
+      "reason": "持续异常 0 秒，累计异常 1 次"
+    },
+    "actions": [
+      {
+        "action": "fan_on",
+        "time": "19:08"
+      }
+    ],
+    "trendTime": null,
+    "endTime": "19:39",
+    "recovered": true,
+    "tempPeak": 34
+  },
+  {
+    "nodeId": "dorm-a",
+    "status": "偏热",
+    "startTime": "19:39",
+    "endTime": "19:39",
+    "recovered": true,
+    "tempPeak": 34
+  },
+  {
+    "nodeId": "dorm-a",
+    "startTime": "19:40",
+    "status": "偏热",
+    "priorityNote": {
+      "time": "19:40",
+      "reason": "持续异常 1 秒，累计异常 1 次"
+    },
+    "actions": [
+      {
+        "action": "fan_on",
+        "time": "19:40"
+      }
+    ],
+    "trendTime": null,
+    "endTime": "19:40",
+    "recovered": true,
+    "tempPeak": 35
+  },
+  {
+    "nodeId": "dorm-a",
+    "startTime": "19:20",
+    "status": "偏热",
+    "priorityNote": {
+      "time": "19:20",
+      "reason": "持续异常 0 秒，累计异常 1 次"
+    },
+    "actions": [
+      {
+        "action": "fan_on",
+        "time": "19:20"
+      }
+    ],
+    "trendTime": null,
+    "endTime": "19:20",
+    "recovered": true,
+    "tempPeak": 33
+  },
+  {
+    "nodeId": "dorm-c",
+    "startTime": "19:21",
+    "status": "偏热",
+    "priorityNote": {
+      "time": "19:21",
+      "reason": "持续异常 1 秒，累计异常 1 次"
+    },
+    "actions": [
+      {
+        "action": "fan_on",
+        "time": "19:21"
+      }
+    ],
+    "trendTime": null,
+    "endTime": "19:22",
+    "recovered": true,
+    "tempPeak": 35
+  },
+  {
+    "nodeId": "dorm-a",
+    "startTime": "19:29",
+    "status": "偏热",
+    "priorityNote": {
+      "time": "19:29",
+      "reason": "持续异常 1 秒，累计异常 1 次"
+    },
+    "actions": [
+      {
+        "action": "fan_on",
+        "time": "19:30"
+      }
+    ],
+    "trendTime": null,
+    "endTime": "19:30",
+    "recovered": true,
+    "tempPeak": 35
+  },
+  {
+    "nodeId": "dorm-a",
+    "status": "偏热",
+    "startTime": "19:32",
+    "endTime": "19:40",
+    "recovered": true,
+    "tempPeak": 35
+  },
+  {
+    "nodeId": "dorm-a",
+    "startTime": "19:41",
+    "status": "偏热",
+    "priorityNote": {
+      "time": "19:41",
+      "reason": "持续异常 1 秒，累计异常 2 次"
+    },
+    "actions": [],
+    "trendTime": "19:41",
+    "endTime": "19:53",
+    "recovered": true,
+    "tempPeak": 35
+  },
+  {
+    "nodeId": "dorm-a",
+    "startTime": "19:53",
+    "status": "偏热",
+    "priorityNote": {
+      "time": "19:53",
+      "reason": "持续异常 1 秒，累计异常 6 次"
+    },
+    "actions": [],
+    "trendTime": "19:53",
+    "endTime": "19:55",
+    "recovered": true,
+    "tempPeak": 33
+  },
+  {
+    "nodeId": "dorm-a",
+    "status": "偏热",
+    "startTime": "19:55",
+    "endTime": "19:56",
+    "recovered": true,
+    "tempPeak": 33
+  },
+  {
+    "nodeId": "dorm-a",
+    "status": "偏热",
+    "startTime": "19:57",
+    "endTime": "20:00",
+    "recovered": true,
+    "tempPeak": 33
+  },
+  {
+    "nodeId": "dorm-a",
+    "startTime": "19:59",
+    "status": "偏热",
+    "priorityNote": {
+      "time": "19:59",
+      "reason": "持续异常 1 秒，累计异常 1 次"
+    },
+    "actions": [
+      {
+        "action": "fan_on",
+        "time": "20:00"
+      }
+    ],
+    "trendTime": null,
+    "endTime": "20:00",
+    "recovered": true,
+    "tempPeak": 33
+  },
+  {
+    "nodeId": "dorm-a",
+    "startTime": "20:03",
+    "status": "偏热",
+    "priorityNote": {
+      "time": "20:03",
+      "reason": "持续异常 1 秒，累计异常 1 次"
+    },
+    "actions": [
+      {
+        "action": "fan_on",
+        "time": "20:04"
+      }
+    ],
+    "trendTime": null,
+    "endTime": "20:04",
+    "recovered": true,
+    "tempPeak": 33
+  },
+  {
+    "nodeId": "dorm-b",
+    "status": "偏热",
+    "startTime": "20:34",
+    "endTime": "20:42",
+    "recovered": true,
+    "tempPeak": 43
+  },
+  {
+    "nodeId": "dorm-b",
+    "status": "偏热",
+    "startTime": "20:20",
+    "endTime": "20:20",
+    "recovered": true,
+    "tempPeak": 43
+  },
+  {
+    "nodeId": "dorm-b",
+    "status": "偏热",
+    "startTime": "20:20",
+    "endTime": "20:20",
+    "recovered": true,
+    "tempPeak": 43
+  },
+  {
+    "nodeId": "dorm-b",
+    "status": "偏热",
+    "startTime": "20:51",
+    "endTime": "21:05",
+    "recovered": true,
+    "tempPeak": 43
+  },
+  {
+    "nodeId": "dorm-c",
+    "startTime": "21:16",
+    "status": "偏热",
+    "priorityNote": {
+      "time": "21:16",
+      "reason": "持续异常 1 秒，累计异常 1 次"
+    },
+    "actions": [],
+    "trendTime": null,
+    "endTime": "21:16",
+    "recovered": true,
+    "tempPeak": 33
+  },
+  {
+    "nodeId": "dorm-a",
+    "status": "偏热",
+    "startTime": "21:25",
+    "endTime": "21:44",
+    "recovered": true,
+    "tempPeak": 34
+  },
+  {
+    "nodeId": "dorm-a",
+    "status": "偏热",
+    "startTime": "21:46",
+    "endTime": "21:47",
+    "recovered": true,
+    "tempPeak": 34
+  },
+  {
+    "nodeId": "dorm-a",
+    "startTime": "23:00",
+    "status": "偏热",
+    "priorityNote": {
+      "time": "22:14",
+      "reason": "持续异常 23 小时 14 分钟，累计异常 1 次"
+    },
+    "actions": [],
+    "trendTime": null,
+    "endTime": "23:00",
+    "recovered": true,
+    "tempPeak": 32
+  },
+  {
+    "nodeId": "dorm-a",
+    "status": "偏热",
+    "startTime": "23:00",
+    "endTime": "23:00",
+    "recovered": true,
+    "tempPeak": 32
+  },
+  {
+    "nodeId": "dorm-b",
+    "status": "偏热",
+    "startTime": "23:00",
+    "endTime": "23:30",
+    "recovered": true,
+    "tempPeak": 32
+  },
+  {
+    "nodeId": "dorm-a",
+    "status": "偏热",
+    "startTime": "23:00",
+    "endTime": "23:00",
+    "recovered": true,
+    "tempPeak": 32
+  },
+  {
+    "nodeId": "dorm-a",
+    "status": "偏热",
+    "startTime": "23:00",
+    "endTime": "23:00",
+    "recovered": true,
+    "tempPeak": 32
+  },
+  {
+    "nodeId": "dorm-a",
+    "status": "偏热",
+    "startTime": "23:00",
+    "endTime": null,
+    "recovered": false,
+    "tempPeak": 32
+  },
+  {
+    "nodeId": "dorm-c",
+    "status": "偏热",
+    "startTime": "23:20",
+    "endTime": "23:46",
+    "recovered": true,
+    "tempPeak": 33
+  },
+  {
+    "nodeId": "dorm-b",
+    "startTime": "23:30",
+    "status": "偏热",
+    "priorityNote": {
+      "time": "23:37",
+      "reason": "持续异常 24 小时 7 分钟，累计异常 1 次"
+    },
+    "actions": [
+      {
+        "action": "fan_on",
+        "time": "23:37"
+      }
+    ],
+    "trendTime": null,
+    "endTime": "23:30",
+    "recovered": true,
+    "tempPeak": 32
+  },
+  {
+    "nodeId": "dorm-b",
+    "startTime": "23:39",
+    "status": "偏热",
+    "priorityNote": {
+      "time": "23:39",
+      "reason": "持续异常 0 秒，累计异常 1 次"
+    },
+    "actions": [
+      {
+        "action": "fan_on",
+        "time": "23:39"
+      }
+    ],
+    "trendTime": null,
+    "endTime": "23:39",
+    "recovered": true,
+    "tempPeak": 32
+  },
+  {
+    "nodeId": "dorm-c",
+    "startTime": "23:45",
+    "status": "偏热",
+    "priorityNote": {
+      "time": "23:45",
+      "reason": "持续异常 1 秒，累计异常 1 次"
+    },
+    "actions": [
+      {
+        "action": "fan_on",
+        "time": "23:46"
+      }
+    ],
+    "trendTime": null,
+    "endTime": "23:46",
+    "recovered": true,
+    "tempPeak": 33
+  }
+]
