@@ -1,0 +1,402 @@
+[
+  {
+    "nodeId": "dorm-b",
+    "temperature": 43,
+    "humidity": 40,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-30T20:20:01"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 16,
+    "humidity": 40,
+    "rule_status": "偏冷",
+    "ml_status": -1,
+    "time": "2026-09-30T20:20:02"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 25,
+    "humidity": 80,
+    "rule_status": "偏湿",
+    "ml_status": -1,
+    "time": "2026-09-30T20:20:03"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 22,
+    "humidity": 50,
+    "rule_status": "正常",
+    "ml_status": 1,
+    "time": "2026-09-30T20:20:04"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 43,
+    "humidity": 40,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-30T20:51:57"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 16,
+    "humidity": 40,
+    "rule_status": "偏冷",
+    "ml_status": -1,
+    "time": "2026-09-30T20:54:21"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 26,
+    "humidity": 80,
+    "rule_status": "偏湿",
+    "ml_status": -1,
+    "time": "2026-09-30T20:54:48"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 21,
+    "humidity": 72,
+    "rule_status": "正常",
+    "ml_status": -1,
+    "time": "2026-09-30T21:05:07"
+  },
+  {
+    "nodeId": "dorm-c",
+    "temperature": 21,
+    "humidity": 72,
+    "rule_status": "正常",
+    "ml_status": -1,
+    "time": "2026-09-30T21:06:15"
+  },
+  {
+    "nodeId": "dorm-c",
+    "temperature": 21,
+    "humidity": 72,
+    "rule_status": "正常",
+    "ml_status": -1,
+    "time": "2026-09-30T21:09:54"
+  },
+  {
+    "nodeId": "dorm-c",
+    "temperature": 33,
+    "humidity": 50,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-30T21:16:12"
+  },
+  {
+    "nodeId": "dorm-c",
+    "temperature": 23,
+    "humidity": 50,
+    "rule_status": "正常",
+    "ml_status": 1,
+    "time": "2026-09-30T21:16:42"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 33,
+    "humidity": 50,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-30T21:25:41"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 21,
+    "humidity": 72,
+    "rule_status": "正常",
+    "ml_status": -1,
+    "time": "2026-09-30T21:36:59"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 34,
+    "humidity": 50,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-30T21:43:58"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 24,
+    "humidity": 60,
+    "rule_status": "正常",
+    "ml_status": 1,
+    "time": "2026-09-30T21:44:33"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 24,
+    "humidity": 60,
+    "rule_status": "正常",
+    "ml_status": 1,
+    "time": "2026-09-30T21:46:07"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 34,
+    "humidity": 50,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-30T21:46:43"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 21,
+    "humidity": 72,
+    "rule_status": "正常",
+    "ml_status": -1,
+    "time": "2026-09-30T21:47:23"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:00:00"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 24,
+    "humidity": 50,
+    "rule_status": "正常",
+    "ml_status": 1,
+    "time": "2026-09-29T23:00:05"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:00:10"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:00:10"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:00:10"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:00:00"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:00:00"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 24,
+    "humidity": 50,
+    "rule_status": "正常",
+    "ml_status": 1,
+    "time": "2026-09-29T23:00:05"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:00:10"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:00:10"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:00:00"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 24,
+    "humidity": 50,
+    "rule_status": "正常",
+    "ml_status": 1,
+    "time": "2026-09-29T23:00:05"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:00:10"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:00:10"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-30T22:10:39"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-30T22:10:59"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:00:00"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 24,
+    "humidity": 50,
+    "rule_status": "正常",
+    "ml_status": 1,
+    "time": "2026-09-29T23:00:05"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:00:10"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:00:10"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-30T22:16:06"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-30T22:16:21"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:20:00"
+  },
+  {
+    "nodeId": "dorm-c",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:20:00"
+  },
+  {
+    "nodeId": "dorm-a",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:30:00"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-29T23:30:00"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 22,
+    "humidity": 60,
+    "rule_status": "正常",
+    "ml_status": 1,
+    "time": "2026-09-29T23:30:00"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 32,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-30T23:39:25"
+  },
+  {
+    "nodeId": "dorm-b",
+    "temperature": 22,
+    "humidity": 60,
+    "rule_status": "正常",
+    "ml_status": 1,
+    "time": "2026-09-30T23:39:48"
+  },
+  {
+    "nodeId": "dorm-c",
+    "temperature": 33,
+    "humidity": 60,
+    "rule_status": "偏热",
+    "ml_status": -1,
+    "time": "2026-09-30T23:45:37"
+  },
+  {
+    "nodeId": "dorm-c",
+    "temperature": 23,
+    "humidity": 60,
+    "rule_status": "正常",
+    "ml_status": 1,
+    "time": "2026-09-30T23:46:49"
+  }
+]

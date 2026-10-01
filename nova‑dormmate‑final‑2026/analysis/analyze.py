@@ -2,8 +2,9 @@
 """M2 离线分析：读取 dormmate.csv → 统计 → trend.png → report.html
 
 用法: python analysis/analyze.py [--csv 路径]
-每次运行全量重算，覆盖重写 report/trend.png 与 report/report.html，
-CSV 数据变化后重跑即可让统计、图、报告全部跟着重新生成。
+每次运行全量重算，覆盖重写 report/trend.png 与 report/report.html。
+Python 只负责统计、表格、绘图；今日摘要与事件复盘由前端
+report-frontend.html 的 JS 读取 data/events.json 渲染。
 """
 import argparse
 import csv
@@ -172,7 +173,8 @@ def write_json(records, out_path):
 
 
 def build_report(records, stats, csv_path, out_path):
-    """自动生成 report.html（覆盖写）。"""
+    """自动生成 report.html（覆盖写）。只含统计、表格、绘图；
+    今日摘要与事件复盘由前端 JS 渲染。"""
     n = len(records)
     now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
@@ -259,6 +261,7 @@ img{{max-width:100%;border-radius:8px}}
 <h2>需要关注的记录</h2>
 {attn_html}
 </div>
+<!-- PLACEHOLDER:前端JS渲染今日摘要与事件复盘 -->
 <div class="card">
 <h2>温湿度趋势</h2>
 <img src="trend.png" alt="温湿度趋势图">
